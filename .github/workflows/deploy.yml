@@ -1,4 +1,45 @@
-name: Deploy Hugo via FTP
+name: Build and deploy Hugo via SFTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code holen
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Hugo installieren
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.152.2'
+          extended: true
+
+      - name: Hugo-Seite bauen
+        run: |
+          rm -rf public
+          hugo
+
+      - name: Per SFTP deployen
+        uses: pressidium/lftp-mirror-action@v1
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          user: ${{ secrets.SFTP_USER }}
+          pass: ${{ secrets.SFTP_PASS }}
+          localDir: public
+          remoteDir: ${{ secrets.SFTP_REMOTE_DIR }}
+          reverse: true
+          onlyNewer: true
+          settings: 'sftp:auto-confirm=yes'
+          options: '--verbose'name: Deploy Hugo via FTP
 
 on:
   push:
