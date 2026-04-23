@@ -34,43 +34,10 @@ jobs:
           port: ${{ secrets.SFTP_PORT }}
           user: ${{ secrets.SFTP_USER }}
           pass: ${{ secrets.SFTP_PASS }}
-          localDir: public
-          remoteDir: ${{ secrets.SFTP_REMOTE_DIR }}
-          reverse: true
           onlyNewer: true
           settings: 'sftp:auto-confirm=yes'
-          options: '--verbose'name: Deploy Hugo via FTP
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Code holen
-        uses: actions/checkout@v4
-
-      - name: Hugo installieren
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.152.2'
-          extended: true
-
-      - name: Hugo-Seite bauen
-        run: |
-          rm -rf public
-          hugo
-
-      - name: Per FTP/FTPS deployen
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          localDir: 'public'
+          remoteDir: ${{ secrets.SFTP_REMOTE_DIR }}
+          reverse: true
+          ignoreFile: '.lftp_ignore'
+          options: '--verbose'
