@@ -1,0 +1,82 @@
+{{ define "title" }}{{ .Title }} | Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  {{ $lernsituation := . }}
+  {{ $bildungsgang := false }}
+  {{ $bildungsgangMatches := where (where site.RegularPages "Section" "bildungsgaenge") "Params.id" $lernsituation.Params.bildungsgang_id }}
+  {{ if gt (len $bildungsgangMatches) 0 }}
+    {{ $bildungsgang = index $bildungsgangMatches 0 }}
+  {{ end }}
+
+  {{ $jahresplan := false }}
+  {{ $jahresplanMatches := where (where site.RegularPages "Section" "jahresplaene") "Params.bildungsgang_id" $lernsituation.Params.bildungsgang_id }}
+  {{ $jahresplanMatches = where $jahresplanMatches "Params.ausbildungsjahr" $lernsituation.Params.ausbildungsjahr }}
+  {{ if gt (len $jahresplanMatches) 0 }}
+    {{ $jahresplan = index $jahresplanMatches 0 }}
+  {{ end }}
+
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">Lernsituation {{ .Params.nummer }}</span>
+        <h1>{{ .Title }}</h1>
+        <ul class="meta-list">
+          <li>Kurztext: {{ .Params.kurztext }}</li>
+          {{ with $bildungsgang }}<li>Bildungsgang: {{ .Title }}</li>{{ end }}
+          <li>Ausbildungsjahr: {{ .Params.ausbildungsjahr }}</li>
+        </ul>
+      </div>
+
+      {{ with $jahresplan }}
+        <p><a class="pill-link" href="{{ .RelPermalink }}">Zum Jahresplan zurueck</a></p>
+      {{ end }}
+
+      {{ if .Content }}
+        <div class="content-section">{{ .Content }}</div>
+      {{ end }}
+    </div>
+
+    <div class="card content-section">
+      <h2>Raster</h2>
+
+      {{ with .Params.raster.kompetenzen }}
+        <h3>Kompetenzen</h3>
+        <ul class="plain-list">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+
+      {{ with .Params.raster.inhalte }}
+        <h3>Inhalte</h3>
+        <ul class="plain-list">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+
+      {{ with .Params.raster.methoden }}
+        <h3>Methoden</h3>
+        <ul class="plain-list">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+
+      {{ with .Params.raster.leistungsnachweis }}
+        <h3>Leistungsnachweis</h3>
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="card content-section">
+      <h2>Anlagen</h2>
+      {{ with .Params.anlagen }}
+        <ul class="attachment-list">
+          {{ range . }}
+            <li><a href="{{ .url }}">{{ .titel }}</a> <span class="eyebrow">({{ .typ }})</span></li>
+          {{ end }}
+        </ul>
+      {{ else }}
+        <p>Zu dieser Lernsituation sind noch keine Anlagen hinterlegt.</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

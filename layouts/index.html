@@ -1,0 +1,25 @@
+{{ define "title" }}Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  {{ $sections := slice "bildungsgaenge" "faecher" "projekte" "lernsituationen" "jahresplaene" }}
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">Startseite</span>
+        <h1>Didaktischer Wizard</h1>
+        <p>Markdown-basierter Hugo-Prototyp fuer Lernsituationen, Stammdaten und Jahresplaene.</p>
+      </div>
+    </div>
+
+    <div class="card content-section">
+      <h2>Bereiche</h2>
+      <ul class="plain-list">
+        {{ range $sections }}
+          {{ with site.GetPage . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title | default .Section }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{ end }}

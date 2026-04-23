@@ -1,0 +1,18 @@
+{{ define "title" }}{{ .Title }} | Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">{{ .Type }}</span>
+        <h1>{{ .Title }}</h1>
+      </div>
+
+      {{ if .Content }}
+        <div class="content-section">{{ .Content }}</div>
+      {{ else }}
+        <p>Fuer diesen Inhalt ist noch keine eigene Darstellung definiert.</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

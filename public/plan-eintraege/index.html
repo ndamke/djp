@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="de">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plan-Eintraeges | Didaktischer Wizard</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --surface: #ffffff;
+        --surface-alt: #eef2ff;
+        --border: #d5dbea;
+        --text: #1c2434;
+        --muted: #5f6b85;
+        --accent: #315efb;
+        --accent-soft: #dbe4ff;
+        --warn: #a64900;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .site-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .site-header a {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .page-shell {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.25rem;
+        box-shadow: 0 10px 25px rgba(24, 39, 75, 0.06);
+      }
+
+      .page-header {
+        display: grid;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .eyebrow {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .meta-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--muted);
+      }
+
+      .matrix-shell {
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+      }
+
+      table.plan-matrix {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 1100px;
+      }
+
+      .plan-matrix th,
+      .plan-matrix td {
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 0;
+        vertical-align: top;
+      }
+
+      .plan-matrix thead th {
+        position: sticky;
+        top: 0;
+        background: #f8faff;
+        z-index: 2;
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .plan-matrix th:first-child,
+      .plan-matrix td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: var(--surface);
+      }
+
+      .plan-matrix thead th:first-child {
+        z-index: 3;
+        background: #f8faff;
+      }
+
+      .plan-matrix th.scope-col,
+      .row-header {
+        min-width: 220px;
+        width: 220px;
+      }
+
+      .row-header {
+        padding: 0.9rem;
+        text-align: left;
+      }
+
+      .row-title {
+        display: block;
+        font-weight: 600;
+      }
+
+      .row-subtitle {
+        display: block;
+        margin-top: 0.25rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .section-row td {
+        padding: 0.7rem 0.9rem;
+        background: #f8faff;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .week-header {
+        min-width: 92px;
+        text-align: center;
+        padding: 0.7rem 0.25rem;
+      }
+
+      .plan-cell {
+        min-width: 92px;
+        background: #fcfdff;
+      }
+
+      .plan-cell.is-filled {
+        background: var(--accent-soft);
+      }
+
+      .cell-link,
+      .cell-warning {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        min-height: 92px;
+        padding: 0.65rem;
+        font-size: 0.82rem;
+      }
+
+      .cell-link strong,
+      .cell-warning strong {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .cell-warning {
+        color: var(--warn);
+      }
+
+      .cell-note {
+        margin-top: auto;
+        color: var(--muted);
+        font-size: 0.72rem;
+      }
+
+      .content-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .content-section h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .pill-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 999px;
+        background: var(--surface-alt);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .attachment-list,
+      .plain-list {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      @media (max-width: 900px) {
+        .page-shell {
+          padding: 1rem;
+        }
+
+        .card {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../">Didaktischer Wizard</a>
+    </header>
+    <main class="page-shell">
+      
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">Section</span>
+        <h1>Plan-Eintraeges</h1>
+        <p>3 Eintraege</p>
+      </div>
+
+      
+        <ul class="plain-list">
+          
+            <li><a href=""></a></li>
+          
+            <li><a href=""></a></li>
+          
+            <li><a href=""></a></li>
+          
+        </ul>
+      
+    </div>
+  </section>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{{ define "title" }}{{ .Title }} | Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  {{ $plan := . }}
+  {{ $bildungsgang := false }}
+  {{ $bildungsgangMatches := where (where site.RegularPages "Section" "bildungsgaenge") "Params.id" $plan.Params.bildungsgang_id }}
+  {{ if gt (len $bildungsgangMatches) 0 }}
+    {{ $bildungsgang = index $bildungsgangMatches 0 }}
+  {{ end }}
+
+  {{ $faecher := sort (where (where site.RegularPages "Section" "faecher") "Params.aktiv" "ne" false) "Params.sortierung" "asc" }}
+  {{ $projekte := sort (where (where site.RegularPages "Section" "projekte") "Params.aktiv" "ne" false) "Params.sortierung" "asc" }}
+  {{ $eintraege := where (where site.RegularPages "Section" "plan-eintraege") "Params.jahresplan_id" $plan.Params.id }}
+
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">Jahresplan</span>
+        <h1>{{ $plan.Title }}</h1>
+        <ul class="meta-list">
+          {{ with $bildungsgang }}<li>Bildungsgang: {{ .Title }}</li>{{ end }}
+          <li>Ausbildungsjahr: {{ $plan.Params.ausbildungsjahr }}</li>
+          <li>Wochen: {{ default 40 $plan.Params.wochen }}</li>
+          <li>Eintraege: {{ len $eintraege }}</li>
+        </ul>
+      </div>
+
+      {{ if gt (len $eintraege) 0 }}
+        {{ partial "jahresplan-matrix.html" (dict "plan" $plan "faecher" $faecher "projekte" $projekte "eintraege" $eintraege) }}
+      {{ else }}
+        <p>Fuer diesen Jahresplan wurden noch keine Planeintraege gefunden.</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

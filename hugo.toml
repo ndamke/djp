@@ -1,0 +1,5 @@
+baseURL = "http://localhost:1313/"
+languageCode = "de-de"
+title = "Didaktischer Wizard"
+disableKinds = ["taxonomy", "term"]
+relativeURLs = true

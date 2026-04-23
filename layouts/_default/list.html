@@ -1,0 +1,23 @@
+{{ define "title" }}{{ .Title | default .Section }} | Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  <section class="content-grid">
+    <div class="card">
+      <div class="page-header">
+        <span class="eyebrow">{{ .Kind | title }}</span>
+        <h1>{{ .Title | default .Section }}</h1>
+        <p>{{ len .RegularPages }} Eintraege</p>
+      </div>
+
+      {{ if gt (len .RegularPages) 0 }}
+        <ul class="plain-list">
+          {{ range .RegularPages.ByTitle }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      {{ else }}
+        <p>In diesem Bereich liegen noch keine Inhalte.</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

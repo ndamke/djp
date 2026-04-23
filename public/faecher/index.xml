@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Faecher on Didaktischer Wizard</title>
+    <link>http://localhost:1313/faecher/</link>
+    <description>Recent content in Faecher on Didaktischer Wizard</description>
+    <generator>Hugo</generator>
+    <language>de-de</language>
+    <atom:link href="http://localhost:1313/faecher/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deutsch</title>
+      <link>http://localhost:1313/faecher/fach-deutsch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/faecher/fach-deutsch/</guid>
+      <description>&lt;p&gt;Stammdatensatz fuer das Fach Deutsch.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Informatik</title>
+      <link>http://localhost:1313/faecher/fach-informatik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/faecher/fach-informatik/</guid>
+      <description>&lt;p&gt;Stammdatensatz fuer das Fach Informatik.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mathematik</title>
+      <link>http://localhost:1313/faecher/fach-mathematik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/faecher/fach-mathematik/</guid>
+      <description>&lt;p&gt;Stammdatensatz fuer das Fach Mathematik.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

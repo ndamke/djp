@@ -1,0 +1,78 @@
+{{ $rowEntries := sort (where (where .eintraege "Params.bezug_typ" .rowType) "Params.bezug_id" .rowId) "Params.startwoche" "asc" }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "skipUntil" 0 }}
+{{ $editorMode := default false .editorMode }}
+{{ $rowColor := .row.Params.farbe }}
+{{ if not $rowColor }}
+  {{ $rowColor = index (dict "fach-informatik" "#315efb" "fach-mathematik" "#16836a" "fach-deutsch" "#b14a2a") .rowId }}
+{{ end }}
+{{ $rowColor = default "#315efb" $rowColor }}
+
+<tr class="plan-row" data-plan-row data-row-type="{{ .rowType }}" data-row-id="{{ .rowId }}" data-row-label="{{ .row.Title }}" style="--row-accent: {{ $rowColor }};">
+  <th class="row-header" scope="row">
+    {{ if $editorMode }}
+      <button type="button" class="row-select" data-row-select data-row-type="{{ .rowType }}" data-row-id="{{ .rowId }}" data-row-label="{{ .row.Title }}">
+        <span class="row-title">{{ .row.Title }}</span>
+        {{ if eq .rowType "fach" }}
+          {{ with .row.Params.kuerzel }}<span class="row-subtitle">{{ . }}</span>{{ end }}
+        {{ else }}
+          <span class="row-subtitle">{{ .row.Params.nummer }} {{ .row.Params.kurztext }}</span>
+        {{ end }}
+      </button>
+    {{ else }}
+      <div class="row-select is-readonly" aria-disabled="true">
+        <span class="row-title">{{ .row.Title }}</span>
+        {{ if eq .rowType "fach" }}
+          {{ with .row.Params.kuerzel }}<span class="row-subtitle">{{ . }}</span>{{ end }}
+        {{ else }}
+          <span class="row-subtitle">{{ .row.Params.nummer }} {{ .row.Params.kurztext }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </th>
+
+  {{ range $week := .weeks }}
+    {{ if gt $week ($scratch.Get "skipUntil") }}
+      {{ $matches := slice }}
+      {{ range $rowEntries }}
+        {{ if and (le .Params.startwoche $week) (ge .Params.endwoche $week) }}
+          {{ $matches = $matches | append . }}
+        {{ end }}
+      {{ end }}
+
+      {{ $entry := false }}
+      {{ $span := 1 }}
+
+      {{ if eq (len $matches) 1 }}
+        {{ $entry = index $matches 0 }}
+        {{ $spanScratch := newScratch }}
+        {{ $spanScratch.Set "value" 1 }}
+        {{ $spanScratch.Set "stop" false }}
+
+        {{ range $probe := $.weeks }}
+          {{ if and (gt $probe $week) (not ($spanScratch.Get "stop")) }}
+            {{ $probeMatches := slice }}
+            {{ range $rowEntries }}
+              {{ if and (le .Params.startwoche $probe) (ge .Params.endwoche $probe) }}
+                {{ $probeMatches = $probeMatches | append . }}
+              {{ end }}
+            {{ end }}
+
+            {{ if and (eq (len $probeMatches) 1) (eq (index $probeMatches 0).Params.id $entry.Params.id) }}
+              {{ $spanScratch.Set "value" (add ($spanScratch.Get "value") 1) }}
+            {{ else }}
+              {{ $spanScratch.Set "stop" true }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        {{ $span = $spanScratch.Get "value" }}
+        {{ if gt $span 1 }}
+          {{ $scratch.Set "skipUntil" (add $week (sub $span 1)) }}
+        {{ end }}
+      {{ end }}
+
+      {{ partial "jahresplan-cell.html" (dict "week" $week "matches" $matches "entry" $entry "span" $span "rowColor" $rowColor "editorMode" $editorMode) }}
+    {{ end }}
+  {{ end }}
+</tr>

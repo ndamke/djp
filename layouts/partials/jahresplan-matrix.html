@@ -1,0 +1,33 @@
+{{ $wochen := seq (default 40 .plan.Params.wochen) }}
+
+<div class="matrix-shell">
+  <table class="plan-matrix">
+    <thead>
+      <tr>
+        <th class="scope-col">Bereich</th>
+        {{ range $wochen }}
+          <th class="week-header">{{ . }}</th>
+        {{ end }}
+      </tr>
+    </thead>
+    <tbody>
+      {{ if gt (len .faecher) 0 }}
+        <tr class="section-row">
+          <td colspan="{{ add (len $wochen) 1 }}">Faecher</td>
+        </tr>
+        {{ range .faecher }}
+          {{ partial "jahresplan-row.html" (dict "plan" $.plan "eintraege" $.eintraege "rowType" "fach" "rowId" .Params.id "row" . "weeks" $wochen "editorMode" $.editorMode) }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt (len .projekte) 0 }}
+        <tr class="section-row">
+          <td colspan="{{ add (len $wochen) 1 }}">Projekte</td>
+        </tr>
+        {{ range .projekte }}
+          {{ partial "jahresplan-row.html" (dict "plan" $.plan "eintraege" $.eintraege "rowType" "projekt" "rowId" .Params.id "row" . "weeks" $wochen "editorMode" $.editorMode) }}
+        {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>

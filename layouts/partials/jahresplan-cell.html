@@ -1,0 +1,72 @@
+{{ $matches := .matches }}
+{{ $span := default 1 .span }}
+{{ $entry := .entry }}
+{{ $rowColor := default "#315efb" .rowColor }}
+{{ $editorMode := default false .editorMode }}
+
+{{ $cellClass := "plan-cell" }}
+{{ if gt (len $matches) 0 }}
+  {{ $cellClass = printf "%s is-filled" $cellClass }}
+{{ end }}
+
+{{ if gt (len $matches) 1 }}
+  {{ $cellClass = printf "%s is-conflict" $cellClass }}
+{{ else if eq (len $matches) 1 }}
+  {{ if gt $span 1 }}
+    {{ $cellClass = printf "%s is-merged" $cellClass }}
+  {{ else }}
+    {{ $cellClass = printf "%s is-single" $cellClass }}
+  {{ end }}
+{{ end }}
+
+<td class="{{ $cellClass }}" style="--row-accent: {{ $rowColor }};" data-drop-cell data-week-start="{{ .week }}" data-week-span="{{ $span }}"{{ if gt $span 1 }} colspan="{{ $span }}"{{ end }}>
+  {{ if gt (len $matches) 1 }}
+    {{ $first := index (sort $matches "Params.startwoche" "asc") 0 }}
+    {{ $lsID := trim $first.Params.lernsituation_id " " }}
+    {{ $lsLink := relURL (printf "lernsituationen/%s/" $lsID) }}
+
+    {{ if $lsID }}
+      <a class="cell-link is-conflict-link" href="{{ $lsLink }}" aria-label="Konflikt in Woche {{ .week }} fuer {{ $first.Params.anzeige_nummer }} {{ $first.Params.anzeige_kurztext }}">
+        <strong>Konflikt</strong>
+        <span>{{ len $matches }} Eintraege</span>
+        <span class="cell-note">{{ $first.Params.anzeige_nummer }} zuerst anzeigen</span>
+      </a>
+    {{ else }}
+      <div class="cell-warning">
+        <strong>Konflikt</strong>
+        <span>{{ len $matches }} Eintraege ohne gueltige Referenz</span>
+      </div>
+    {{ end }}
+  {{ else if eq (len $matches) 1 }}
+    {{ $lsID := trim $entry.Params.lernsituation_id " " }}
+    {{ $lsLink := relURL (printf "lernsituationen/%s/" $lsID) }}
+
+    {{ if $lsID }}
+      {{ if $editorMode }}<span class="resize-handle resize-handle-left" data-resize-handle data-resize-direction="left" aria-hidden="true"></span>{{ end }}
+      <a class="cell-link" href="{{ $lsLink }}"{{ if $editorMode }} draggable="true" data-plan-entry data-entry-id="{{ $entry.Params.id }}" data-ls-id="{{ $lsID }}" data-entry-label="{{ $entry.Params.anzeige_nummer }} {{ $entry.Params.anzeige_kurztext }}" data-start-week="{{ $entry.Params.startwoche }}" data-end-week="{{ $entry.Params.endwoche }}" data-row-type="{{ $entry.Params.bezug_typ }}" data-row-id="{{ $entry.Params.bezug_id }}" data-revision="{{ $entry.Params.revision }}"{{ end }} aria-label="{{ $entry.Params.anzeige_nummer }} {{ $entry.Params.anzeige_kurztext }}, Wochen {{ $entry.Params.startwoche }} bis {{ $entry.Params.endwoche }}">
+        <span class="cell-heading">
+          <strong>{{ $entry.Params.anzeige_nummer }}</strong>
+          {{ if gt $span 1 }}
+            <span class="cell-duration">{{ $span }} Wochen</span>
+          {{ end }}
+        </span>
+        <span class="cell-summary">{{ $entry.Params.anzeige_kurztext }}</span>
+        <span class="cell-meta">
+          <span class="cell-note">W{{ $entry.Params.startwoche }}{{ if gt $span 1 }}-{{ $entry.Params.endwoche }}{{ end }}</span>
+          {{ if gt $span 1 }}
+            <span class="cell-range">Block im Jahresplan</span>
+          {{ end }}
+        </span>
+      </a>
+      {{ if $editorMode }}
+        <span class="resize-handle resize-handle-right" data-resize-handle data-resize-direction="right" aria-hidden="true"></span>
+        <button type="button" class="cell-remove" data-remove-entry data-entry-id="{{ $entry.Params.id }}" data-entry-label="{{ $entry.Params.anzeige_nummer }} {{ $entry.Params.anzeige_kurztext }}" data-entry-revision="{{ $entry.Params.revision }}" aria-label="{{ $entry.Params.anzeige_nummer }} {{ $entry.Params.anzeige_kurztext }} aus dem Plan entfernen">×</button>
+      {{ end }}
+    {{ else }}
+      <div class="cell-warning">
+        <strong>{{ $entry.Params.anzeige_nummer }}</strong>
+        <span>Keine Lernsituation gefunden</span>
+      </div>
+    {{ end }}
+  {{ end }}
+</td>

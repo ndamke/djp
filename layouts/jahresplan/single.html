@@ -1,0 +1,1121 @@
+{{ define "title" }}{{ .Title }} | Didaktischer Wizard{{ end }}
+
+{{ define "main" }}
+  {{ $plan := . }}
+  {{ $writeServiceURL := default "http://127.0.0.1:8787/api" site.Params.plan_write_service_url }}
+  {{ $editorMode := hugo.IsServer }}
+  {{ if isset site.Params "editor_mode" }}
+    {{ $editorModeRaw := lower (trim (printf "%v" site.Params.editor_mode) " ") }}
+    {{ if or (eq $editorModeRaw "true") (eq $editorModeRaw "1") (eq $editorModeRaw "yes") }}
+      {{ $editorMode = true }}
+    {{ else if or (eq $editorModeRaw "false") (eq $editorModeRaw "0") (eq $editorModeRaw "no") }}
+      {{ $editorMode = false }}
+    {{ end }}
+  {{ end }}
+  {{ $debugMode := false }}
+  {{ if isset site.Params "plan_debug" }}
+    {{ $debugModeRaw := lower (trim (printf "%v" site.Params.plan_debug) " ") }}
+    {{ if or (eq $debugModeRaw "true") (eq $debugModeRaw "1") (eq $debugModeRaw "yes") }}
+      {{ $debugMode = true }}
+    {{ end }}
+  {{ end }}
+  {{ $bildungsgang := false }}
+  {{ $bildungsgangMatches := where (where site.RegularPages "Section" "bildungsgaenge") "Params.id" $plan.Params.bildungsgang_id }}
+  {{ if gt (len $bildungsgangMatches) 0 }}
+    {{ $bildungsgang = index $bildungsgangMatches 0 }}
+  {{ end }}
+
+  {{ $faecher := sort (where (where site.RegularPages "Section" "faecher") "Params.aktiv" "ne" false) "Params.sortierung" "asc" }}
+  {{ $projekte := sort (where (where site.RegularPages "Section" "projekte") "Params.aktiv" "ne" false) "Params.sortierung" "asc" }}
+  {{ $alleEintraege := where (where site.RegularPages "Section" "plan-eintraege") "Params.jahresplan_id" $plan.Params.id }}
+  {{ $eintraege := slice }}
+  {{ range $alleEintraege }}
+    {{ $aktiv := "true" }}
+    {{ if isset .Params "aktiv" }}
+      {{ $aktiv = lower (printf "%v" (index .Params "aktiv")) }}
+    {{ end }}
+    {{ if ne $aktiv "false" }}
+      {{ $eintraege = $eintraege | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $lsPool := where site.RegularPages "Section" "lernsituationen" }}
+  {{ $lsPoolFiltered := slice }}
+  {{ $planBG := lower (trim (printf "%v" (default "" $plan.Params.bildungsgang_id)) " ") }}
+  {{ $planJahr := trim (printf "%v" (default "" $plan.Params.ausbildungsjahr)) " " }}
+  {{ range $lsPool }}
+    {{ $bg := lower (trim (printf "%v" (default "" .Params.bildungsgang_id)) " ") }}
+    {{ $jahr := trim (printf "%v" (default "" .Params.ausbildungsjahr)) " " }}
+    {{ if and (or (eq $bg "") (eq $bg $planBG)) (or (eq $jahr "") (eq $jahr $planJahr)) }}
+      {{ $lsPoolFiltered = $lsPoolFiltered | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $lsPool = $lsPoolFiltered }}
+  {{ $lsPool = sort $lsPool "Params.nummer" "asc" }}
+  {{ $lsFachFallback := dict "ls-001" "fach-informatik" "ls-002" "fach-mathematik" "ls-003" "fach-informatik" "ls-004" "fach-mathematik" "ls-005" "fach-deutsch" "ls-006" "fach-deutsch" }}
+  {{ $lsSpanFallback := dict "ls-001" 1 "ls-002" 9 "ls-003" 9 "ls-004" 11 "ls-005" 9 "ls-006" 1 "ls-007" 4 "ls-008" 4 }}
+
+  <section class="content-grid">
+    <div class="card" data-plan-board data-api-base="{{ $writeServiceURL }}" data-plan-id="{{ $plan.Params.id }}" data-editor-mode="{{ if $editorMode }}true{{ else }}false{{ end }}">
+      <div class="page-header">
+        <span class="eyebrow">Jahresplan</span>
+        <h1>{{ $plan.Title }}</h1>
+        <ul class="meta-list">
+          {{ with $bildungsgang }}<li>Bildungsgang: {{ .Title }}</li>{{ end }}
+          <li>Ausbildungsjahr: {{ $plan.Params.ausbildungsjahr }}</li>
+          <li>Wochen: {{ default 40 $plan.Params.wochen }}</li>
+          <li>Eintraege: {{ len $eintraege }}</li>
+        </ul>
+      </div>
+
+      <div class="plan-toolbar">
+        <div class="plan-toolbar-copy">
+          <p class="plan-toolbar-note">{{ if $editorMode }}Editor-Modus: Zeilenkopf waehlen, Lernsituation unten aufnehmen und per Drag-and-drop in eine Woche legen.{{ else }}Ansichtsmodus: Dieser Jahresplan ist schreibgeschuetzt und zeigt den zuletzt veroeffentlichten Stand.{{ end }}</p>
+          <p class="plan-toolbar-detail" data-plan-detail hidden></p>
+        </div>
+        <p class="plan-toolbar-status" data-plan-status role="status" aria-live="polite"></p>
+      </div>
+
+      <div data-plan-body>
+        {{ partial "jahresplan-matrix.html" (dict "plan" $plan "faecher" $faecher "projekte" $projekte "eintraege" $eintraege "editorMode" $editorMode) }}
+      </div>
+
+      {{ if $editorMode }}
+        <section class="plan-palette" data-plan-palette>
+          <header class="plan-palette-head">
+            <h2>Lernsituationen einplanen</h2>
+            <p data-palette-title>Bitte zuerst einen Zeilenkopf auswaehlen.</p>
+          </header>
+          <ul class="plan-palette-list" data-palette-list>
+            <li hidden data-debug-filtered>{{ range $lsPool }}{{ .Params.id }}|{{ .Params.bildungsgang_id }}|{{ .Params.ausbildungsjahr }};{{ end }}</li>
+            {{ range $lsPool }}
+              {{ $lsID := trim (default .File.ContentBaseName .Params.id) " " }}
+              {{ if $lsID }}
+                {{ $lsFachID := default (default "" .Params.fach_id) .Params.fachid }}
+                {{ if not $lsFachID }}
+                  {{ $lsFachEntries := where (where $alleEintraege "Params.lernsituation_id" $lsID) "Params.bezug_typ" "fach" }}
+                  {{ if gt (len $lsFachEntries) 0 }}
+                    {{ $lsFachSorted := sort $lsFachEntries "Params.revision" "desc" }}
+                    {{ $lsFachID = (index $lsFachSorted 0).Params.bezug_id }}
+                  {{ end }}
+                {{ end }}
+                {{ if not $lsFachID }}
+                  {{ $lsFachID = default "" (index $lsFachFallback $lsID) }}
+                {{ end }}
+                {{ $lsFachID = replaceRE "\\s+" "" $lsFachID }}
+                {{ $lsColor := default "#315efb" (index (dict "fach-informatik" "#315efb" "fach-mathematik" "#16836a" "fach-deutsch" "#b14a2a") $lsFachID) }}
+                {{ $lsEintraege := where $alleEintraege "Params.lernsituation_id" $lsID }}
+                {{ $lsActiveFachEintraege := where (where $eintraege "Params.lernsituation_id" $lsID) "Params.bezug_typ" "fach" }}
+                {{ $assignedRows := "|" }}
+                {{ range $lsActiveFachEintraege }}
+                  {{ $rowID := default (default "" .Params.bezug_id) .Params.bezugid }}
+                  {{ if $rowID }}
+                    {{ $assignedRows = printf "%s%s|" $assignedRows $rowID }}
+                  {{ end }}
+                {{ end }}
+                {{ $defaultSpan := 1 }}
+                {{ if gt (len $lsEintraege) 0 }}
+                  {{ $entrySorted := sort $lsEintraege "Params.revision" "desc" }}
+                  {{ $lastEntry := index $entrySorted 0 }}
+                  {{ $start := int (default 1 $lastEntry.Params.startwoche) }}
+                  {{ $end := int (default $start $lastEntry.Params.endwoche) }}
+                  {{ $defaultSpan = sub (add $end 1) $start }}
+                  {{ if lt $defaultSpan 1 }}
+                    {{ $defaultSpan = 1 }}
+                  {{ end }}
+                {{ end }}
+                {{ if and (eq $defaultSpan 1) (index $lsSpanFallback $lsID) }}
+                  {{ $defaultSpan = int (index $lsSpanFallback $lsID) }}
+                {{ end }}
+                <li hidden>
+                  <button type="button" class="palette-entry" draggable="true" style="--ls-accent: {{ $lsColor }};" data-palette-entry data-ls-id="{{ $lsID }}" data-ls-fach-id="{{ $lsFachID }}" data-ls-assigned-rows="{{ $assignedRows }}" data-ls-default-span="{{ $defaultSpan }}" data-ls-nummer="{{ .Params.nummer }}" data-ls-kurztext="{{ .Params.kurztext }}" data-ls-title="{{ .Title }}" aria-label="{{ .Params.nummer }} {{ .Params.kurztext }} in den Plan ziehen">
+                    <span class="palette-number">{{ .Params.nummer }}</span>
+                    <span class="palette-title">{{ .Title }}</span>
+                    <span class="palette-summary">{{ .Params.kurztext }}</span>
+                    <span class="palette-duration">{{ $defaultSpan }} {{ if eq $defaultSpan 1 }}Woche{{ else }}Wochen{{ end }}</span>
+                  </button>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+          <p class="plan-palette-empty" data-palette-empty hidden>Alle passenden Lernsituationen sind bereits im Plan eingeplant.</p>
+          {{ if $debugMode }}
+            <details class="plan-debug-box" open>
+              <summary>Debug</summary>
+              <pre data-plan-debug>Debug aktiv...</pre>
+            </details>
+          {{ end }}
+        </section>
+      {{ end }}
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const board = document.querySelector("[data-plan-board]")
+      if (!board) return
+      const isEditorMode = (board.dataset.editorMode || "false") === "true"
+      if (!isEditorMode) return
+
+      const statusNode = board.querySelector("[data-plan-status]")
+      const detailNode = board.querySelector("[data-plan-detail]")
+      let debugNode = board.querySelector("[data-plan-debug]")
+      let paletteNode = board.querySelector("[data-plan-palette]")
+      let paletteListNode = board.querySelector("[data-palette-list]")
+      let paletteTitleNode = board.querySelector("[data-palette-title]")
+      let paletteEmptyNode = board.querySelector("[data-palette-empty]")
+      const apiBase = (board.dataset.apiBase || "http://127.0.0.1:8787/api").replace(/\/+$/, "")
+      const planID = board.dataset.planId || ""
+      const maxWeek = 40
+      let dragState = null
+      let resizeState = null
+      let selectedRow = null
+
+      const debugLog = (label, data = null) => {
+        if (!debugNode) return
+        const timestamp = new Date().toISOString().slice(11, 23)
+        let line = `${timestamp} ${label}`
+        if (data) {
+          try {
+            line += ` ${JSON.stringify(data)}`
+          } catch (_) {}
+        }
+        const current = debugNode.textContent || ""
+        debugNode.textContent = `${line}\n${current}`.slice(0, 12000)
+      }
+
+      const getEntryState = (entryNode, overrides = {}) => {
+        const row = entryNode.closest("[data-plan-row]")
+        return {
+          entryId: entryNode.dataset.entryId,
+          label: entryNode.dataset.entryLabel,
+          startWeek: Number(entryNode.dataset.startWeek),
+          endWeek: Number(entryNode.dataset.endWeek),
+          rowType: entryNode.dataset.rowType,
+          rowId: entryNode.dataset.rowId,
+          rowLabel: row?.dataset.rowLabel || "",
+          revision: entryNode.dataset.revision || "",
+          entryNode,
+          ...overrides,
+        }
+      }
+
+      const setStatus = (message, kind = "info", detail = "") => {
+        if (!statusNode) return
+        statusNode.textContent = message
+        statusNode.dataset.state = kind
+
+        if (!detailNode) return
+        if (detail) {
+          detailNode.hidden = false
+          detailNode.textContent = detail
+          detailNode.dataset.state = kind
+          return
+        }
+
+        detailNode.hidden = true
+        detailNode.textContent = ""
+        delete detailNode.dataset.state
+      }
+
+      const syncPaletteEmptyState = () => {
+        if (!paletteListNode || !paletteEmptyNode) return
+        if (!selectedRow) {
+          paletteEmptyNode.hidden = true
+          return
+        }
+        const hasVisibleEntries = Array.from(paletteListNode.querySelectorAll("[data-palette-entry]")).some((entry) => {
+          const item = entry.closest("li")
+          return item && !item.hidden
+        })
+        paletteEmptyNode.hidden = hasVisibleEntries
+      }
+
+      const filterPaletteForSelectedRow = () => {
+        if (!paletteListNode) return
+        const normalize = (value) => (value || "").trim().toLowerCase()
+        const occupiedLs = new Set()
+        if (selectedRow) {
+          board
+            .querySelectorAll(`[data-plan-entry][data-row-type="${selectedRow.rowType}"][data-row-id="${selectedRow.rowId}"]`)
+            .forEach((entry) => {
+              const lsId = entry.dataset.lsId || ""
+              if (lsId) occupiedLs.add(lsId)
+            })
+        }
+        const entries = paletteListNode.querySelectorAll("[data-palette-entry]")
+        let visibleCount = 0
+        entries.forEach((entry) => {
+          const item = entry.closest("li")
+          if (!item) return
+          if (!selectedRow || selectedRow.rowType !== "fach") {
+            item.hidden = true
+            return
+          }
+          const selectedRowId = normalize(selectedRow.rowId)
+          const sameFach = normalize(entry.dataset.lsFachId) === selectedRowId
+          const lsId = (entry.dataset.lsId || "").trim()
+          const assignedRows = normalize(entry.dataset.lsAssignedRows)
+          const alreadyAssigned = assignedRows.includes(`|${selectedRowId}|`)
+          const alreadyPlaced = occupiedLs.has(lsId)
+          item.hidden = !sameFach || alreadyAssigned || alreadyPlaced
+          if (!item.hidden) visibleCount += 1
+        })
+        debugLog("palette.filter", {
+          selectedRow: selectedRow ? `${selectedRow.rowType}:${selectedRow.rowId}` : null,
+          occupiedInRow: occupiedLs.size,
+          visibleCount,
+        })
+        syncPaletteEmptyState()
+      }
+
+      const highlightSelectedRow = () => {
+        board.querySelectorAll("[data-row-select]").forEach((button) => {
+          const isCurrent = selectedRow && button.dataset.rowType === selectedRow.rowType && button.dataset.rowId === selectedRow.rowId
+          button.classList.toggle("is-selected", Boolean(isCurrent))
+          const row = button.closest("[data-plan-row]")
+          if (row) row.classList.toggle("is-selected-row", Boolean(isCurrent))
+        })
+      }
+
+      const selectRow = (button) => {
+        selectedRow = {
+          rowType: button.dataset.rowType,
+          rowId: button.dataset.rowId,
+          rowLabel: button.dataset.rowLabel,
+        }
+        highlightSelectedRow()
+        filterPaletteForSelectedRow()
+        if (paletteNode) paletteNode.classList.add("is-active")
+        if (paletteTitleNode) {
+          if (selectedRow.rowType === "fach") {
+            paletteTitleNode.textContent = `Zeile aktiv: ${selectedRow.rowLabel}. Ziehe nun eine passende Lernsituation in die gewuenschte Woche.`
+          } else {
+            paletteTitleNode.textContent = `Zeile aktiv: ${selectedRow.rowLabel}. Fuer Projekte sind derzeit keine Lernsituationen in der Liste hinterlegt.`
+          }
+        }
+        setStatus(
+          `Zeile ${selectedRow.rowLabel} ist aktiv.`,
+          "info",
+          "Lernsituation aus der Liste unten greifen und in eine freie Woche ziehen."
+        )
+        debugLog("row.select", selectedRow)
+      }
+
+      const clearDropMarkers = () => {
+        board.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"))
+        board.querySelectorAll(".is-drop-range").forEach((node) => node.classList.remove("is-drop-range"))
+        board.querySelectorAll(".is-drop-start").forEach((node) => node.classList.remove("is-drop-start"))
+        board.querySelectorAll(".is-drop-end").forEach((node) => node.classList.remove("is-drop-end"))
+        board.querySelectorAll(".is-drop-row").forEach((node) => node.classList.remove("is-drop-row"))
+        board.querySelectorAll(".is-drop-invalid").forEach((node) => node.classList.remove("is-drop-invalid"))
+      }
+
+      const clearDragState = () => {
+        clearDropMarkers()
+        board.classList.remove("is-drag-active")
+      }
+
+      const clearResizeState = () => {
+        window.removeEventListener("pointermove", onResizePointerMove)
+        window.removeEventListener("pointerup", endResizeInteraction)
+        window.removeEventListener("pointercancel", cancelResizeInteraction)
+        clearDropMarkers()
+        board.classList.remove("is-resize-active")
+        if (resizeState?.entryNode) {
+          resizeState.entryNode.draggable = true
+        }
+        if (resizeState?.handleNode) {
+          if (typeof resizeState.pointerId === "number") {
+            try {
+              resizeState.handleNode.releasePointerCapture(resizeState.pointerId)
+            } catch (_) {}
+          }
+          resizeState.handleNode.classList.remove("is-resizing")
+        }
+        if (resizeState?.entryNode) {
+          resizeState.entryNode.classList.remove("is-resizing-block")
+        }
+        resizeState = null
+      }
+
+      const getDropContext = (cell, clientX) => {
+        const row = cell.closest("[data-plan-row]")
+        if (!row) return null
+
+        const weekStart = Number(cell.dataset.weekStart || 0)
+        const weekSpan = Math.max(Number(cell.dataset.weekSpan || 1), 1)
+        const rect = cell.getBoundingClientRect()
+        const relativeX = rect.width > 0 ? Math.min(Math.max(clientX - rect.left, 0), Math.max(rect.width - 1, 0)) : 0
+        const offset = rect.width > 0 ? Math.floor((relativeX / rect.width) * weekSpan) : 0
+        const targetWeek = weekStart + Math.min(offset, weekSpan - 1)
+
+        return {
+          cell,
+          row,
+          rowType: row.dataset.rowType,
+          rowId: row.dataset.rowId,
+          rowLabel: row.dataset.rowLabel,
+          targetWeek,
+        }
+      }
+
+      const buildMovePayload = (state, dropContext) => {
+        const duration = state.endWeek - state.startWeek + 1
+        const startwoche = Math.min(Math.max(dropContext.targetWeek, 1), maxWeek - duration + 1)
+        const endwoche = startwoche + duration - 1
+
+        return {
+          startwoche,
+          endwoche,
+          bezug_typ: dropContext.rowType,
+          bezug_id: dropContext.rowId,
+          expected_revision: state.revision,
+        }
+      }
+
+      const buildResizePayload = (state, dropContext) => {
+        const targetWeek = Math.min(Math.max(dropContext.targetWeek, 1), maxWeek)
+        let startwoche = state.startWeek
+        let endwoche = state.endWeek
+
+        if (state.direction === "left") {
+          startwoche = Math.min(targetWeek, state.endWeek)
+        } else {
+          endwoche = Math.max(targetWeek, state.startWeek)
+        }
+
+        return {
+          startwoche,
+          endwoche,
+          bezug_typ: state.rowType,
+          bezug_id: state.rowId,
+          expected_revision: state.revision,
+        }
+      }
+
+      const buildInsertPayload = (state, dropContext) => {
+        const duration = Math.max(Number(state.defaultSpan || 1), 1)
+        const startwoche = Math.min(Math.max(dropContext.targetWeek, 1), maxWeek - duration + 1)
+        return {
+          startwoche,
+          endwoche: startwoche + duration - 1,
+          bezug_typ: state.rowType,
+          bezug_id: state.rowId,
+        }
+      }
+
+      const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms))
+
+      const fetchLatestPlanBoard = async (entryID, revision, options = {}) => {
+        const { allowMissingEntry = false } = options
+        for (let attempt = 0; attempt < 8; attempt += 1) {
+          const url = new URL(window.location.href)
+          url.searchParams.set("_plan_refresh", `${Date.now()}-${attempt}`)
+
+          const response = await fetch(url.toString(), { cache: "no-store" })
+          if (!response.ok) {
+            throw new Error(JSON.stringify({
+              code: "REFRESH_FAILED",
+              message: `Planansicht konnte nicht neu geladen werden (${response.status}).`,
+            }))
+          }
+
+          const html = await response.text()
+          const doc = new DOMParser().parseFromString(html, "text/html")
+          const nextBoard = doc.querySelector("[data-plan-board]")
+          if (!nextBoard) {
+            throw new Error(JSON.stringify({
+              code: "REFRESH_FAILED",
+              message: "Aktualisierte Planansicht wurde nicht gefunden.",
+            }))
+          }
+
+          const entry = entryID ? nextBoard.querySelector(`[data-entry-id="${entryID}"]`) : null
+          if (!entryID || (!revision && (!allowMissingEntry || entry)) || entry?.dataset.revision === revision || (allowMissingEntry && !entry)) {
+            return nextBoard
+          }
+
+          await wait(180 * (attempt + 1))
+        }
+
+        throw new Error(JSON.stringify({
+          code: "REFRESH_TIMEOUT",
+          message: "Aktualisierte Planansicht steht noch nicht bereit.",
+        }))
+      }
+
+      const replacePlanSections = (nextBoard) => {
+        const currentBody = board.querySelector("[data-plan-body]")
+        const nextBody = nextBoard.querySelector("[data-plan-body]")
+        if (!currentBody || !nextBody) {
+          throw new Error(JSON.stringify({
+            code: "REFRESH_FAILED",
+            message: "Planinhalt konnte nicht ersetzt werden.",
+          }))
+        }
+
+        currentBody.replaceWith(nextBody)
+
+        const currentPalette = board.querySelector("[data-plan-palette]")
+        const nextPalette = nextBoard.querySelector("[data-plan-palette]")
+        if (currentPalette && nextPalette) {
+          currentPalette.replaceWith(nextPalette)
+        }
+
+        paletteNode = board.querySelector("[data-plan-palette]")
+        paletteListNode = board.querySelector("[data-palette-list]")
+        paletteTitleNode = board.querySelector("[data-palette-title]")
+        paletteEmptyNode = board.querySelector("[data-palette-empty]")
+        debugNode = board.querySelector("[data-plan-debug]")
+
+        highlightSelectedRow()
+        filterPaletteForSelectedRow()
+      }
+
+      const getRowEntries = (row, excludedEntryID) => {
+        return Array.from(row.querySelectorAll("[data-plan-entry]"))
+          .map((node) => ({
+            entryId: node.dataset.entryId,
+            label: node.dataset.entryLabel,
+            startWeek: Number(node.dataset.startWeek),
+            endWeek: Number(node.dataset.endWeek),
+          }))
+          .filter((entry) => entry.entryId !== excludedEntryID)
+      }
+
+      const getDropValidation = (state, dropContext, payload) => {
+        let nextPayload = payload
+        if (!nextPayload) {
+          if (state.type === "resize") {
+            nextPayload = buildResizePayload(state, dropContext)
+          } else if (state.type === "insert") {
+            nextPayload = buildInsertPayload(state, dropContext)
+          } else {
+            nextPayload = buildMovePayload(state, dropContext)
+          }
+        }
+
+        if (dropContext.rowType !== state.rowType || dropContext.rowId !== state.rowId) {
+          return {
+            valid: false,
+            reason: "cross-row",
+            payload: nextPayload,
+            conflicts: [],
+          }
+        }
+
+        const conflicts = getRowEntries(dropContext.row, state.entryId || "").filter((entry) => {
+          return nextPayload.startwoche <= entry.endWeek && nextPayload.endwoche >= entry.startWeek
+        })
+
+        if (conflicts.length > 0) {
+          return {
+            valid: false,
+            reason: "overlap",
+            payload: nextPayload,
+            conflicts,
+          }
+        }
+
+        return {
+          valid: true,
+          reason: "ok",
+          payload: nextPayload,
+          conflicts: [],
+        }
+      }
+
+      const markProjectedRange = (state, dropContext, payload) => {
+        const validation = getDropValidation(state, dropContext, payload)
+        const nextPayload = validation.payload
+        const rowCells = dropContext.row.querySelectorAll("[data-drop-cell]")
+
+        clearDropMarkers()
+        dropContext.row.classList.add(validation.valid ? "is-drop-row" : "is-drop-invalid")
+
+        rowCells.forEach((cell) => {
+          const cellStart = Number(cell.dataset.weekStart || 0)
+          const cellSpan = Math.max(Number(cell.dataset.weekSpan || 1), 1)
+          const cellEnd = cellStart + cellSpan - 1
+          const overlapsRange = cellStart <= nextPayload.endwoche && cellEnd >= nextPayload.startwoche
+
+          if (!overlapsRange) return
+
+          cell.classList.add(validation.valid ? "is-drop-range" : "is-drop-invalid")
+          if (cellStart <= nextPayload.startwoche && cellEnd >= nextPayload.startwoche) {
+            cell.classList.add("is-drop-start")
+          }
+          if (cellStart <= nextPayload.endwoche && cellEnd >= nextPayload.endwoche) {
+            cell.classList.add("is-drop-end")
+          }
+          if (cell === dropContext.cell) {
+            cell.classList.add("is-drop-target")
+          }
+        })
+
+        if (!validation.valid && validation.reason === "cross-row") {
+          setStatus(
+            "Verschieben zwischen Zeilen ist nicht erlaubt.",
+            "warning",
+            state.type === "resize"
+              ? "Die Dauer kann nur innerhalb derselben Fach- oder Projektzeile geaendert werden."
+              : "Der Block kann nur innerhalb derselben Fach- oder Projektzeile verschoben werden."
+          )
+          return validation
+        }
+
+        if (!validation.valid && validation.reason === "overlap") {
+          const labels = validation.conflicts.map((entry) => entry.label).join(", ")
+          setStatus(
+            `Konflikt in Woche ${nextPayload.startwoche}-${nextPayload.endwoche}.`,
+            "warning",
+            `Der Zielbereich ueberschneidet sich mit: ${labels}.`
+          )
+          return validation
+        }
+
+        setStatus(
+          state.type === "resize"
+            ? `Dauer aendern: ${state.label}, Woche ${nextPayload.startwoche}-${nextPayload.endwoche}`
+            : state.type === "insert"
+              ? `Einplanen: ${state.label} in ${dropContext.rowLabel}, Woche ${nextPayload.startwoche}-${nextPayload.endwoche}`
+              : `Ablegen: ${state.label} in ${dropContext.rowLabel}, Woche ${nextPayload.startwoche}-${nextPayload.endwoche}`,
+          "preview",
+          state.type === "resize"
+            ? "Beim Loslassen werden Start oder Ende des Blocks lokal gespeichert."
+            : state.type === "insert"
+              ? "Beim Loslassen wird ein neuer Planeintrag angelegt."
+              : "Beim Loslassen wird der lokale Planeintrag gespeichert."
+        )
+        return validation
+      }
+
+      const mapMoveError = (error) => {
+        let payload = null
+        try {
+          payload = JSON.parse(error.message)
+        } catch (_) {
+          payload = null
+        }
+
+        if (!payload) {
+          return {
+            message: "Speichern fehlgeschlagen.",
+            detail: error.message || "Unbekannter Fehler beim Aktualisieren des Planeintrags.",
+            kind: "error",
+          }
+        }
+
+        const code = payload.code || "REQUEST_FAILED"
+        switch (code) {
+          case "SERVICE_UNREACHABLE":
+            return {
+              message: "Schreibdienst nicht erreichbar.",
+              detail: payload.detail || `Bitte pruefe, ob der Go-Service unter ${apiBase} laeuft.`,
+              kind: "error",
+            }
+          case "REVISION_MISMATCH":
+            return {
+              message: "Planeintrag wurde parallel geaendert.",
+              detail: "Bitte Seite neu laden und den Block danach erneut verschieben.",
+              kind: "warning",
+            }
+          case "PLAN_ENTRY_NOT_FOUND":
+            return {
+              message: "Planeintrag nicht gefunden.",
+              detail: "Der Block existiert im lokalen Content-Verzeichnis nicht mehr.",
+              kind: "error",
+            }
+          case "PLAN_NOT_FOUND":
+            return {
+              message: "Jahresplan nicht gefunden.",
+              detail: "Bitte pruefe die planbezogene Zuordnung der aktuellen Seite.",
+              kind: "error",
+            }
+          case "LERNSITUATION_NOT_FOUND":
+            return {
+              message: "Lernsituation nicht gefunden.",
+              detail: "Der gewaehlte Eintrag ist im Content-Verzeichnis nicht mehr verfuegbar.",
+              kind: "error",
+            }
+          case "REFERENCE_NOT_FOUND":
+            return {
+              message: "Zielzeile ist nicht mehr gueltig.",
+              detail: "Das referenzierte Fach oder Projekt wurde nicht gefunden.",
+              kind: "error",
+            }
+          case "CROSS_ROW_MOVE_FORBIDDEN":
+            return {
+              message: "Verschieben zwischen Zeilen ist nicht erlaubt.",
+              detail: "Der Block kann nur innerhalb derselben Fach- oder Projektzeile verschoben werden.",
+              kind: "warning",
+            }
+          case "PLAN_ENTRY_CONFLICT":
+            return {
+              message: "Zielbereich ist bereits belegt.",
+              detail: payload.message,
+              kind: "warning",
+            }
+          case "LS_ALREADY_ASSIGNED":
+            return {
+              message: "Lernsituation ist bereits eingeplant.",
+              detail: "In derselben Fachzeile darf jede Lernsituation nur einmal vorkommen.",
+              kind: "warning",
+            }
+          case "REFRESH_TIMEOUT":
+            return {
+              message: "Aenderung gespeichert, Ansicht noch nicht aktualisiert.",
+              detail: "Der Eintrag wurde gespeichert. Bitte in wenigen Sekunden erneut pruefen.",
+              kind: "warning",
+            }
+          case "REFRESH_FAILED":
+            return {
+              message: "Aenderung gespeichert, Ansicht konnte nicht aktualisiert werden.",
+              detail: payload.message,
+              kind: "warning",
+            }
+          case "VALIDATION_ERROR": {
+            const field = payload.details?.[0]?.field
+            return {
+              message: "Zielposition ist ungueltig.",
+              detail: field ? `Bitte pruefe den Wert fuer ${field} und versuche es erneut.` : payload.message,
+              kind: "warning",
+            }
+          }
+          case "INVALID_BEZUG_TYP":
+          case "MISSING_BEZUG_ID":
+          case "INVALID_TYPE":
+            return {
+              message: "Planeintrag konnte nicht gespeichert werden.",
+              detail: payload.message,
+              kind: "error",
+            }
+          default:
+            if (payload.status === 404) {
+              return {
+                message: "API-Endpunkt nicht gefunden.",
+                detail: "Bitte pruefe die Konfiguration des lokalen Schreibdienstes.",
+                kind: "error",
+              }
+            }
+            if (payload.status === 500) {
+              return {
+                message: "Interner Fehler beim Speichern.",
+                detail: "Bitte Go-Service-Log pruefen und danach erneut versuchen.",
+                kind: "error",
+              }
+            }
+            return {
+              message: "Speichern fehlgeschlagen.",
+              detail: payload.message,
+              kind: payload.status >= 500 ? "error" : "warning",
+            }
+        }
+      }
+
+      const saveEntryUpdate = async (state, payload, successDetail) => {
+        if (
+          payload.startwoche === state.startWeek &&
+          payload.endwoche === state.endWeek &&
+          payload.bezug_typ === state.rowType &&
+          payload.bezug_id === state.rowId
+        ) {
+          setStatus(
+            state.type === "resize" ? "Blockgroesse wurde nicht veraendert." : "Block wurde nicht verschoben.",
+            "info",
+            state.type === "resize"
+              ? "Start und Ende entsprechen bereits dem aktuellen Stand."
+              : "Die Zielposition entspricht bereits dem aktuellen Stand."
+          )
+          return
+        }
+
+        setStatus(
+          state.type === "resize"
+            ? `Speichere neue Dauer fuer ${state.label}, Woche ${payload.startwoche}-${payload.endwoche} ...`
+            : `Speichere ${state.label} nach ${state.rowLabel}, Woche ${payload.startwoche}-${payload.endwoche} ...`,
+          "info",
+          state.type === "resize"
+            ? "Start und Ende des Blocks werden lokal in Markdown aktualisiert."
+            : "Der Planeintrag wird lokal in Markdown aktualisiert."
+        )
+
+        let response
+        try {
+          response = await fetch(`${apiBase}/plan-eintraege/${state.entryId}/move`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+        } catch (_) {
+          throw new Error(JSON.stringify({
+            code: "SERVICE_UNREACHABLE",
+            detail: `Bitte pruefe, ob der Go-Service unter ${apiBase} laeuft.`,
+          }))
+        }
+
+        const result = await response.json().catch(() => ({}))
+        if (!response.ok || !result.ok) {
+          throw new Error(JSON.stringify({
+            status: response.status,
+            code: result?.error?.code || "REQUEST_FAILED",
+            message: result?.error?.message || `Speichern fehlgeschlagen (${response.status})`,
+            details: result?.error?.details || [],
+          }))
+        }
+
+        setStatus("Aenderung gespeichert. Jahresplan wird aktualisiert ...", "success", "Der lokale Hugo-Stand wird ohne Seiten-Reload nachgeladen.")
+
+        const nextBoard = await fetchLatestPlanBoard(state.entryId, result.revision)
+        replacePlanSections(nextBoard)
+        setStatus("Aenderung gespeichert. Jahresplan wurde aktualisiert.", "success", successDetail)
+      }
+
+      const saveNewEntry = async (state, payload) => {
+        debugLog("insert.request", {
+          lernsituationId: state.lernsituationId,
+          rowType: payload.bezug_typ,
+          rowId: payload.bezug_id,
+          startwoche: payload.startwoche,
+          endwoche: payload.endwoche,
+        })
+        setStatus(
+          `Lege ${state.label} in ${state.rowLabel}, Woche ${payload.startwoche} an ...`,
+          "info",
+          "Der Planeintrag wird lokal in Markdown erstellt."
+        )
+
+        let response
+        try {
+          response = await fetch(`${apiBase}/plan-eintraege`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              jahresplan_id: planID,
+              lernsituation_id: state.lernsituationId,
+              startwoche: payload.startwoche,
+              endwoche: payload.endwoche,
+              bezug_typ: payload.bezug_typ,
+              bezug_id: payload.bezug_id,
+              }),
+          })
+        } catch (error) {
+          debugLog("insert.fetch_error", {
+            message: error?.message || "fetch_failed",
+            apiBase,
+          })
+          throw new Error(JSON.stringify({
+            code: "SERVICE_UNREACHABLE",
+            detail: `Bitte pruefe, ob der Go-Service unter ${apiBase} laeuft.`,
+          }))
+        }
+
+        const result = await response.json().catch(() => ({}))
+        debugLog("insert.response", {
+          okHttp: response.ok,
+          okBody: result?.ok,
+          status: response.status,
+          code: result?.error?.code || null,
+          message: result?.error?.message || null,
+        })
+        if (!response.ok || !result.ok) {
+          throw new Error(JSON.stringify({
+            status: response.status,
+            code: result?.error?.code || "REQUEST_FAILED",
+            message: result?.error?.message || `Anlegen fehlgeschlagen (${response.status})`,
+            details: result?.error?.details || [],
+          }))
+        }
+
+        const nextBoard = await fetchLatestPlanBoard(result.id, result.revision)
+        replacePlanSections(nextBoard)
+        setStatus(
+          "Lernsituation eingeplant.",
+          "success",
+          "Der neue Block wurde angelegt und kann nun verschoben oder in der Dauer angepasst werden."
+        )
+      }
+
+      const removeEntry = async (entryButton) => {
+        const entryId = entryButton.dataset.entryId
+        const entryLabel = entryButton.dataset.entryLabel
+        const expectedRevision = entryButton.dataset.entryRevision || ""
+
+        setStatus(`Entferne ${entryLabel} aus dem Plan ...`, "info", "Der Planeintrag wird aus der Rasterdarstellung entfernt.")
+
+        let response
+        try {
+          response = await fetch(`${apiBase}/plan-eintraege/${entryId}/remove`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ expected_revision: expectedRevision }),
+          })
+        } catch (_) {
+          throw new Error(JSON.stringify({
+            code: "SERVICE_UNREACHABLE",
+            detail: `Bitte pruefe, ob der Go-Service unter ${apiBase} laeuft.`,
+          }))
+        }
+
+        const result = await response.json().catch(() => ({}))
+        if (!response.ok || !result.ok) {
+          throw new Error(JSON.stringify({
+            status: response.status,
+            code: result?.error?.code || "REQUEST_FAILED",
+            message: result?.error?.message || `Entfernen fehlgeschlagen (${response.status})`,
+            details: result?.error?.details || [],
+          }))
+        }
+
+        const nextBoard = await fetchLatestPlanBoard(entryId, result.revision, { allowMissingEntry: true })
+        replacePlanSections(nextBoard)
+        setStatus("Block entfernt.", "success", "Die Lernsituation kann nun wieder aus der Liste eingeplant werden.")
+      }
+
+      board.addEventListener("dragstart", (event) => {
+        if (resizeState || event.target.closest("[data-resize-handle]")) {
+          event.preventDefault()
+          return
+        }
+
+        const paletteEntry = event.target.closest("[data-palette-entry]")
+        if (paletteEntry) {
+          if (!selectedRow || selectedRow.rowType !== "fach") {
+            event.preventDefault()
+            setStatus("Bitte zuerst eine Fachzeile auswaehlen.", "warning", "Erst danach kannst du eine passende Lernsituation aus der Liste ziehen.")
+            return
+          }
+
+          dragState = {
+            type: "insert",
+            entryId: "",
+            lernsituationId: paletteEntry.dataset.lsId,
+            label: `${paletteEntry.dataset.lsNummer} ${paletteEntry.dataset.lsKurztext}`,
+            defaultSpan: Math.max(Number(paletteEntry.dataset.lsDefaultSpan || 1), 1),
+            rowType: selectedRow.rowType,
+            rowId: selectedRow.rowId,
+            rowLabel: selectedRow.rowLabel,
+            startWeek: 0,
+            endWeek: 0,
+          }
+
+          debugLog("dragstart.palette", {
+            lsId: dragState.lernsituationId,
+            selectedRow: `${dragState.rowType}:${dragState.rowId}`,
+            defaultSpan: dragState.defaultSpan,
+          })
+
+          board.classList.add("is-drag-active")
+          paletteEntry.classList.add("is-dragging")
+          event.dataTransfer.effectAllowed = "copyMove"
+          event.dataTransfer.setData("text/plain", dragState.lernsituationId)
+          setStatus(
+            `Ziehe ${dragState.label} in ${dragState.rowLabel} ...`,
+            "info",
+            `Der Block wird mit ${dragState.defaultSpan} Woche${dragState.defaultSpan === 1 ? "" : "n"} angelegt.`
+          )
+          return
+        }
+
+        const handle = event.target.closest("[data-plan-entry]")
+        if (!handle) return
+
+        dragState = getEntryState(handle, { type: "move" })
+
+        board.classList.add("is-drag-active")
+        handle.classList.add("is-dragging")
+        event.dataTransfer.effectAllowed = "move"
+        event.dataTransfer.setData("text/plain", dragState.entryId)
+        setStatus(
+          `Ziehe ${dragState.label} in eine andere Woche derselben Zeile ...`,
+          "info",
+          "Verschieben zwischen Zeilen ist nicht erlaubt."
+        )
+      })
+
+      board.addEventListener("dragend", (event) => {
+        const handle = event.target.closest("[data-plan-entry], [data-palette-entry]")
+        if (handle) handle.classList.remove("is-dragging")
+        clearDragState()
+        dragState = null
+      })
+
+      const onResizePointerMove = (event) => {
+        if (!resizeState) return
+
+        const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest("[data-drop-cell]")
+        if (!cell) return
+
+        const dropContext = getDropContext(cell, event.clientX)
+        if (!dropContext) return
+
+        markProjectedRange(resizeState, dropContext, buildResizePayload(resizeState, dropContext))
+      }
+
+      const endResizeInteraction = async (event) => {
+        if (!resizeState) return
+
+        const state = resizeState
+        const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest("[data-drop-cell]")
+        if (!cell) {
+          setStatus("Groessenaenderung abgebrochen.", "info", "Kein gueltiges Wochenfeld unter dem Mauszeiger gefunden.")
+          clearResizeState()
+          return
+        }
+
+        const dropContext = getDropContext(cell, event.clientX)
+        if (!dropContext) {
+          clearResizeState()
+          return
+        }
+
+        const payload = buildResizePayload(state, dropContext)
+        const validation = getDropValidation(state, dropContext, payload)
+        if (!validation.valid) {
+          markProjectedRange(state, dropContext, payload)
+          clearResizeState()
+          return
+        }
+
+        try {
+          await saveEntryUpdate(state, payload, "Die Matrix zeigt jetzt die neue Dauer ohne Seiten-Reload.")
+        } catch (error) {
+          const mapped = mapMoveError(error)
+          setStatus(mapped.message, mapped.kind, mapped.detail)
+        } finally {
+          clearResizeState()
+        }
+      }
+
+      const cancelResizeInteraction = () => {
+        if (!resizeState) return
+        setStatus("Groessenaenderung abgebrochen.", "info", "Der Block wurde nicht angepasst.")
+        clearResizeState()
+      }
+
+      board.addEventListener("click", (event) => {
+        if (event.target.closest("[data-resize-handle]")) {
+          event.preventDefault()
+          return
+        }
+
+        const rowSelect = event.target.closest("[data-row-select]")
+        if (rowSelect) {
+          event.preventDefault()
+          selectRow(rowSelect)
+          return
+        }
+
+        const removeButton = event.target.closest("[data-remove-entry]")
+        if (removeButton) {
+          event.preventDefault()
+          removeEntry(removeButton).catch((error) => {
+            const mapped = mapMoveError(error)
+            setStatus(mapped.message, mapped.kind, mapped.detail)
+          })
+        }
+      })
+
+      board.addEventListener("pointerdown", (event) => {
+        const handleNode = event.target.closest("[data-resize-handle]")
+        if (!handleNode) return
+
+        const entryNode = handleNode.closest("[data-drop-cell]")?.querySelector("[data-plan-entry]")
+        if (!entryNode) return
+
+        event.preventDefault()
+        event.stopPropagation()
+
+        resizeState = getEntryState(entryNode, {
+          type: "resize",
+          direction: handleNode.dataset.resizeDirection,
+          handleNode,
+          pointerId: event.pointerId,
+        })
+
+        board.classList.add("is-resize-active")
+        entryNode.draggable = false
+        entryNode.classList.add("is-resizing-block")
+        handleNode.classList.add("is-resizing")
+        if (typeof event.pointerId === "number") {
+          try {
+            handleNode.setPointerCapture(event.pointerId)
+          } catch (_) {}
+        }
+        setStatus(
+          resizeState.direction === "left"
+            ? `Ziehe den linken Rand von ${resizeState.label}, um den Start zu aendern ...`
+            : `Ziehe den rechten Rand von ${resizeState.label}, um das Ende zu aendern ...`,
+          "info",
+          "Die Dauer kann nur innerhalb derselben Zeile angepasst werden."
+        )
+
+        window.addEventListener("pointermove", onResizePointerMove)
+        window.addEventListener("pointerup", endResizeInteraction, { once: true })
+        window.addEventListener("pointercancel", cancelResizeInteraction, { once: true })
+      })
+
+      board.addEventListener("dragover", (event) => {
+        if (!dragState) return
+
+        const cell = event.target.closest("[data-drop-cell]")
+        if (!cell) return
+
+        event.preventDefault()
+
+        const dropContext = getDropContext(cell, event.clientX)
+        if (!dropContext) return
+
+        const validation = markProjectedRange(dragState, dropContext)
+        event.dataTransfer.dropEffect = validation.valid ? "move" : "none"
+      })
+
+      board.addEventListener("drop", async (event) => {
+        if (!dragState) return
+
+        const cell = event.target.closest("[data-drop-cell]")
+        if (!cell) return
+
+        event.preventDefault()
+
+        const dropContext = getDropContext(cell, event.clientX)
+        if (!dropContext) return
+
+        const validation = getDropValidation(dragState, dropContext)
+        debugLog("drop.validation", {
+          dragType: dragState.type,
+          dragRow: `${dragState.rowType}:${dragState.rowId}`,
+          dropRow: `${dropContext.rowType}:${dropContext.rowId}`,
+          valid: validation.valid,
+          reason: validation.reason,
+          payload: validation.payload,
+        })
+        if (!validation.valid) {
+          markProjectedRange(dragState, dropContext)
+          return
+        }
+
+        try {
+          if (dragState.type === "insert") {
+            await saveNewEntry(dragState, validation.payload)
+          } else {
+            await saveEntryUpdate(dragState, validation.payload, "Die Matrix zeigt jetzt den neuen Stand ohne Seiten-Reload.")
+          }
+        } catch (error) {
+          const mapped = mapMoveError(error)
+          setStatus(mapped.message, mapped.kind, mapped.detail)
+        } finally {
+          clearDragState()
+        }
+      })
+
+      filterPaletteForSelectedRow()
+    })()
+  </script>
+{{ end }}

@@ -1,0 +1,2343 @@
+Watching for changes in /Users/norbertdamke/Documents/dwo/content/{bildungsgaenge,faecher,jahresplaene,lernsituationen,plan-eintraege,...}, /Users/norbertdamke/Documents/dwo/layouts/{_default,jahresplaene,jahresplan,lernsituation,lernsituationen,...}, /Users/norbertdamke/Documents/dwo/static/anlagen
+Watching for config changes in /Users/norbertdamke/Documents/dwo/hugo.toml
+Start building sites … 
+hugo v0.157.0+extended+withdeploy darwin/arm64 BuildDate=2026-02-25T16:38:33Z VendorInfo=Homebrew
+
+
+                  │ EN 
+──────────────────┼────
+ Pages            │ 22 
+ Paginator pages  │  0 
+ Non-page files   │  0 
+ Static files     │  0 
+ Processed images │  0 
+ Aliases          │  0 
+ Cleaned          │  0 
+
+Built in 9 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop
+
+Change detected, rebuilding site (#1).
+2026-04-21 22:09:41.536 +0200
+Source changed /bildungsgaenge/_index.md
+Source changed /faecher/_index.md
+Source changed /jahresplaene/_index.md
+Source changed /lernsituationen/_index.md
+Source changed /plan-eintraege/_index.md
+Source changed /projekte/_index.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#2).
+2026-04-21 22:16:26.056 +0200
+Template added /partials/jahresplan-row.html
+Template added /_default/baseof.html
+Template added /partials/jahresplan-cell.html
+Template added /partials/jahresplan-matrix.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#3).
+2026-04-21 22:21:03.559 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#4).
+2026-04-21 22:21:09.558 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 5 ms
+
+Change detected, rebuilding site (#5).
+2026-04-21 22:21:28.558 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#6).
+2026-04-21 22:21:45.058 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#7).
+2026-04-21 22:23:44.559 +0200
+Template changed /_default/baseof.html
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 6 ms
+
+Change detected, rebuilding site (#8).
+2026-04-21 22:32:43.069 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#9).
+2026-04-21 23:02:32.558 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#10).
+2026-04-21 23:02:57.556 +0200
+Template changed /_default/baseof.html
+Template changed /partials/jahresplan-cell.html
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#11).
+2026-04-21 23:07:23.040 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 6 ms
+
+Change detected, rebuilding site (#12).
+2026-04-21 23:07:46.047 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#13).
+2026-04-21 23:07:47.539 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#14).
+2026-04-21 23:07:50.047 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#15).
+2026-04-21 23:07:52.541 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#16).
+2026-04-21 23:07:58.539 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#17).
+2026-04-21 23:08:02.539 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#18).
+2026-04-21 23:08:05.545 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#19).
+2026-04-21 23:08:08.539 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 5 ms
+
+Change detected, rebuilding site (#20).
+2026-04-21 23:08:11.039 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#21).
+2026-04-21 23:08:14.541 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#22).
+2026-04-21 23:08:16.040 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#23).
+2026-04-21 23:08:19.554 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#24).
+2026-04-21 23:08:23.540 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#25).
+2026-04-21 23:08:30.041 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#26).
+2026-04-21 23:08:34.039 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#27).
+2026-04-21 23:08:41.041 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#28).
+2026-04-21 23:09:00.540 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#29).
+2026-04-21 23:09:08.543 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#30).
+2026-04-21 23:09:15.040 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#31).
+2026-04-21 23:09:17.540 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#32).
+2026-04-21 23:10:51.041 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#33).
+2026-04-21 23:11:05.539 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#34).
+2026-04-21 23:11:20.540 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#35).
+2026-04-21 23:11:25.539 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#36).
+2026-04-21 23:11:39.040 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#37).
+2026-04-21 23:12:00.543 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#38).
+2026-04-21 23:14:02.541 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#39).
+2026-04-21 23:14:37.039 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#40).
+2026-04-21 23:14:51.539 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#41).
+2026-04-21 23:18:40.539 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#42).
+2026-04-21 23:18:44.540 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#43).
+2026-04-21 23:18:47.039 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#44).
+2026-04-21 23:19:30.039 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#45).
+2026-04-21 23:19:36.539 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#46).
+2026-04-21 23:19:38.039 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#47).
+2026-04-21 23:21:09.538 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0002.md
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#48).
+2026-04-21 23:21:24.039 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 6 ms
+
+Change detected, rebuilding site (#49).
+2026-04-21 23:21:39.547 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#50).
+2026-04-21 23:23:05.539 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#51).
+2026-04-21 23:23:09.544 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#52).
+2026-04-21 23:23:31.540 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#53).
+2026-04-21 23:23:52.040 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#54).
+2026-04-21 23:25:29.538 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#55).
+2026-04-21 23:25:59.038 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 6 ms
+
+Change detected, rebuilding site (#56).
+2026-04-21 23:25:59.540 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#57).
+2026-04-21 23:26:06.039 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#58).
+2026-04-21 23:26:22.538 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#59).
+2026-04-21 23:26:24.038 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#60).
+2026-04-21 23:26:30.538 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#61).
+2026-04-21 23:26:37.538 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#62).
+2026-04-21 23:26:55.538 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0002.md
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 5 ms
+
+Change detected, rebuilding site (#63).
+2026-04-21 23:27:59.542 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#64).
+2026-04-21 23:28:10.541 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#65).
+2026-04-21 23:28:15.540 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms
+
+Change detected, rebuilding site (#66).
+2026-04-21 23:28:22.038 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#67).
+2026-04-21 23:31:23.549 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 7 ms
+
+Change detected, rebuilding site (#68).
+2026-04-21 23:31:45.557 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#69).
+2026-04-21 23:33:00.560 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#70).
+2026-04-21 23:33:43.561 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#71).
+2026-04-21 23:34:18.560 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#72).
+2026-04-21 23:34:55.560 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0002.md
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#73).
+2026-04-21 23:36:48.063 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#74).
+2026-04-21 23:36:59.561 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#75).
+2026-04-21 23:37:03.061 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#76).
+2026-04-21 23:37:10.567 +0200
+Source changed /lernsituationen/ls-003.md
+Source changed /lernsituationen/ls-004.md
+Source changed /plan-eintraege/pe-0004.md
+Source changed /plan-eintraege/pe-0005.md
+Source changed /faecher/fach-informatik.md
+Source changed /faecher/fach-mathematik.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#77).
+2026-04-21 23:37:26.562 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#78).
+2026-04-21 23:37:30.061 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#79).
+2026-04-21 23:37:33.062 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#80).
+2026-04-21 23:37:34.061 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 8 ms
+
+Change detected, rebuilding site (#81).
+2026-04-21 23:37:36.567 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#82).
+2026-04-21 23:38:15.561 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#83).
+2026-04-21 23:39:02.562 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0002.md
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#84).
+2026-04-21 23:39:48.062 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#85).
+2026-04-21 23:39:52.563 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#86).
+2026-04-21 23:39:55.062 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#87).
+2026-04-21 23:39:57.562 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#88).
+2026-04-21 23:40:07.063 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#89).
+2026-04-21 23:41:43.062 +0200
+Template changed /partials/jahresplan-cell.html
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#90).
+2026-04-21 23:43:38.562 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#91).
+2026-04-21 23:43:50.564 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#92).
+2026-04-21 23:43:59.565 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#93).
+2026-04-21 23:44:02.566 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#94).
+2026-04-21 23:44:07.565 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#95).
+2026-04-21 23:44:15.064 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#96).
+2026-04-21 23:44:17.564 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms
+
+Change detected, rebuilding site (#97).
+2026-04-21 23:45:18.063 +0200
+Template changed /partials/jahresplan-matrix.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#98).
+2026-04-21 23:45:47.568 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#99).
+2026-04-21 23:45:55.564 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#100).
+2026-04-21 23:46:04.565 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#101).
+2026-04-21 23:46:08.064 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#102).
+2026-04-21 23:46:11.565 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#103).
+2026-04-21 23:50:06.067 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms
+
+Change detected, rebuilding site (#104).
+2026-04-21 23:50:13.068 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#105).
+2026-04-21 23:50:17.067 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#106).
+2026-04-21 23:50:48.068 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#107).
+2026-04-21 23:50:58.568 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#108).
+2026-04-21 23:51:03.066 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#109).
+2026-04-22 21:45:27.021 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#110).
+2026-04-22 21:45:30.512 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#111).
+2026-04-22 21:45:38.016 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 51 ms
+
+Change detected, rebuilding site (#112).
+2026-04-22 21:45:43.012 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#113).
+2026-04-22 21:45:46.515 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 47 ms
+
+Change detected, rebuilding site (#114).
+2026-04-22 21:47:47.511 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#115).
+2026-04-22 21:47:59.011 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#116).
+2026-04-22 21:48:48.513 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#117).
+2026-04-22 21:49:03.012 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#118).
+2026-04-22 21:49:08.020 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#119).
+2026-04-22 21:50:22.512 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#120).
+2026-04-22 21:50:32.511 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#121).
+2026-04-22 21:50:44.012 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#122).
+2026-04-22 21:51:38.515 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#123).
+2026-04-22 21:51:41.512 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#124).
+2026-04-22 21:51:45.017 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#125).
+2026-04-22 21:51:48.513 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#126).
+2026-04-22 21:51:53.514 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#127).
+2026-04-22 21:51:57.016 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#128).
+2026-04-22 21:52:04.022 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#129).
+2026-04-22 21:52:08.013 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#130).
+2026-04-22 21:52:15.513 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#131).
+2026-04-22 21:52:22.014 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#132).
+2026-04-22 21:52:29.013 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#133).
+2026-04-22 21:52:34.012 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#134).
+2026-04-22 21:52:52.512 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#135).
+2026-04-22 21:52:58.012 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#136).
+2026-04-22 21:53:06.513 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#137).
+2026-04-22 21:54:46.512 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#138).
+2026-04-22 21:56:31.514 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#139).
+2026-04-22 21:56:56.512 +0200
+Source changed /faecher/fach-deutsch.md
+Source changed /lernsituationen/ls-005.md
+Source changed /lernsituationen/ls-006.md
+Source changed /plan-eintraege/pe-0006.md
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#140).
+2026-04-22 21:57:28.013 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#141).
+2026-04-22 21:59:10.513 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#142).
+2026-04-22 21:59:36.012 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#143).
+2026-04-22 21:59:38.512 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#144).
+2026-04-22 21:59:41.513 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#145).
+2026-04-22 21:59:43.011 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#146).
+2026-04-22 21:59:44.511 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#147).
+2026-04-22 21:59:49.513 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#148).
+2026-04-22 21:59:54.012 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#149).
+2026-04-22 21:59:56.512 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#150).
+2026-04-22 21:59:58.511 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#151).
+2026-04-22 22:00:40.512 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#152).
+2026-04-22 22:01:17.513 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#153).
+2026-04-22 22:01:20.514 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#154).
+2026-04-22 22:01:24.511 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#155).
+2026-04-22 22:01:36.514 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 33 ms
+
+Change detected, rebuilding site (#156).
+2026-04-22 22:01:40.512 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#157).
+2026-04-22 22:04:37.511 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#158).
+2026-04-22 22:05:32.014 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#159).
+2026-04-22 22:05:49.015 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#160).
+2026-04-22 22:05:57.513 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 33 ms
+
+Change detected, rebuilding site (#161).
+2026-04-22 22:08:11.533 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#162).
+2026-04-22 22:10:19.543 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#163).
+2026-04-22 22:10:23.536 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#164).
+2026-04-22 22:10:27.537 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms
+
+Change detected, rebuilding site (#165).
+2026-04-22 22:10:31.537 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#166).
+2026-04-22 22:10:36.041 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#167).
+2026-04-22 22:10:39.037 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#168).
+2026-04-22 22:10:42.536 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#169).
+2026-04-22 22:10:45.538 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#170).
+2026-04-22 22:10:50.043 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#171).
+2026-04-22 22:11:14.538 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#172).
+2026-04-22 22:11:41.052 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#173).
+2026-04-22 22:11:43.065 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#174).
+2026-04-22 22:11:46.538 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#175).
+2026-04-22 22:12:03.539 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#176).
+2026-04-22 22:12:07.039 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#177).
+2026-04-22 22:12:10.538 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#178).
+2026-04-22 22:12:14.541 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#179).
+2026-04-22 22:12:20.038 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#180).
+2026-04-22 22:12:35.038 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#181).
+2026-04-22 22:18:55.542 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#182).
+2026-04-22 22:19:00.039 +0200
+Template changed /partials/jahresplan-row.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#183).
+2026-04-22 22:19:09.541 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#184).
+2026-04-22 22:19:29.540 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#185).
+2026-04-22 22:19:37.040 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#186).
+2026-04-22 22:19:44.540 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#187).
+2026-04-22 22:19:55.542 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#188).
+2026-04-22 22:20:08.040 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#189).
+2026-04-22 22:20:15.541 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#190).
+2026-04-22 22:20:24.540 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#191).
+2026-04-22 22:20:34.040 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#192).
+2026-04-22 22:20:41.040 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 13 ms
+
+Change detected, rebuilding site (#193).
+2026-04-22 22:21:03.540 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#194).
+2026-04-22 22:21:25.541 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#195).
+2026-04-22 22:21:52.542 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#196).
+2026-04-22 22:24:46.042 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#197).
+2026-04-22 22:26:24.043 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#198).
+2026-04-22 22:30:57.047 +0200
+Source changed /plan-eintraege/pe-0008.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#199).
+2026-04-22 22:31:19.547 +0200
+Source changed /plan-eintraege/pe-0003.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#200).
+2026-04-22 22:31:26.546 +0200
+Source changed /plan-eintraege/pe-0005.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 33 ms
+
+Change detected, rebuilding site (#201).
+2026-04-22 22:31:37.046 +0200
+Source changed /plan-eintraege/pe-0006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#202).
+2026-04-22 22:31:40.054 +0200
+Source changed /plan-eintraege/pe-0007.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#203).
+2026-04-22 22:31:44.545 +0200
+Source changed /plan-eintraege/pe-0008.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#204).
+2026-04-22 22:31:54.045 +0200
+Source changed /plan-eintraege/pe-0004.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#205).
+2026-04-22 22:31:56.546 +0200
+Source changed /plan-eintraege/pe-0001.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#206).
+2026-04-22 22:31:59.542 +0200
+Source changed /plan-eintraege/pe-0002.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#207).
+2026-04-22 22:33:13.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#208).
+2026-04-22 22:33:25.028 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#209).
+2026-04-22 22:33:33.027 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#210).
+2026-04-22 22:34:40.532 +0200
+Source changed /plan-eintraege/pe-0009.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#211).
+2026-04-22 22:34:48.531 +0200
+Source changed /plan-eintraege/pe-0009.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#212).
+2026-04-22 22:35:36.031 +0200
+Source changed /plan-eintraege/pe-0010.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#213).
+2026-04-22 22:35:41.529 +0200
+Source changed /plan-eintraege/pe-0010.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms
+
+Change detected, rebuilding site (#214).
+2026-04-22 22:37:55.029 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#215).
+2026-04-22 22:38:13.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#216).
+2026-04-22 22:38:28.528 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#217).
+2026-04-22 22:38:36.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#218).
+2026-04-22 22:38:46.528 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#219).
+2026-04-22 22:39:00.030 +0200
+Source changed /lernsituationen/ls-001.md
+Source changed /lernsituationen/ls-002.md
+Source changed /lernsituationen/ls-003.md
+Source changed /lernsituationen/ls-004.md
+Source changed /lernsituationen/ls-005.md
+Source changed /lernsituationen/ls-006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#220).
+2026-04-22 22:39:07.029 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#221).
+2026-04-22 22:39:50.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#222).
+2026-04-22 22:40:01.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#223).
+2026-04-22 22:41:13.532 +0200
+Source changed /plan-eintraege/pe-0011.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#224).
+2026-04-22 22:41:27.032 +0200
+Source changed /plan-eintraege/pe-0012.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#225).
+2026-04-22 22:43:06.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#226).
+2026-04-22 22:43:12.029 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#227).
+2026-04-22 22:43:20.529 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#228).
+2026-04-22 22:43:28.029 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#229).
+2026-04-22 22:43:34.029 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#230).
+2026-04-22 22:45:14.032 +0200
+Source changed /plan-eintraege/pe-0012.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#231).
+2026-04-22 22:45:16.530 +0200
+Source changed /plan-eintraege/pe-0010.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#232).
+2026-04-22 22:45:19.034 +0200
+Source changed /plan-eintraege/pe-0009.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#233).
+2026-04-22 22:45:22.034 +0200
+Source changed /plan-eintraege/pe-0011.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#234).
+2026-04-22 22:48:07.032 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 23 ms
+
+Change detected, rebuilding site (#235).
+2026-04-22 22:51:21.531 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#236).
+2026-04-22 22:52:06.533 +0200
+Source changed /lernsituationen/ls-001.md
+Source changed /lernsituationen/ls-002.md
+Source changed /lernsituationen/ls-003.md
+Source changed /lernsituationen/ls-004.md
+Source changed /lernsituationen/ls-005.md
+Source changed /lernsituationen/ls-006.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#237).
+2026-04-22 22:52:11.030 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#238).
+2026-04-22 22:52:28.530 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#239).
+2026-04-22 22:52:49.030 +0200
+Source changed /plan-eintraege/pe-0001.md
+Source changed /plan-eintraege/pe-0002.md
+Source changed /plan-eintraege/pe-0003.md
+Source changed /plan-eintraege/pe-0004.md
+Source changed /plan-eintraege/pe-0005.md
+Source changed /plan-eintraege/pe-0006.md
+Source changed /plan-eintraege/pe-0007.md
+Source changed /plan-eintraege/pe-0008.md
+Source changed /plan-eintraege/pe-0009.md
+Source changed /plan-eintraege/pe-0010.md
+Source changed /plan-eintraege/pe-0011.md
+Source changed /plan-eintraege/pe-0012.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 1 ms
+
+Change detected, rebuilding site (#240).
+2026-04-22 22:53:13.530 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 10 ms
+
+Change detected, rebuilding site (#241).
+2026-04-22 22:54:45.032 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#242).
+2026-04-22 22:56:00.530 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#243).
+2026-04-22 22:56:22.531 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#244).
+2026-04-22 22:56:36.530 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#245).
+2026-04-22 22:56:59.031 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#246).
+2026-04-22 22:58:27.523 +0200
+Source changed /plan-eintraege/pe-0014.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#247).
+2026-04-22 22:59:13.519 +0200
+Source changed /plan-eintraege/pe-0015.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 9 ms
+
+Change detected, rebuilding site (#248).
+2026-04-22 23:00:20.520 +0200
+Source changed /plan-eintraege/pe-0014.md
+Source changed /plan-eintraege/pe-0015.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 12 ms
+
+Change detected, rebuilding site (#249).
+2026-04-22 23:00:26.519 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#250).
+2026-04-22 23:01:03.521 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#251).
+2026-04-22 23:04:16.021 +0200
+Source changed /plan-eintraege/pe-0016.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#252).
+2026-04-22 23:04:30.020 +0200
+Source changed /plan-eintraege/pe-0016.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#253).
+2026-04-22 23:04:37.520 +0200
+Source changed /plan-eintraege/pe-0017.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#254).
+2026-04-22 23:04:46.020 +0200
+Source changed /plan-eintraege/pe-0018.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#255).
+2026-04-22 23:05:12.020 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 33 ms
+
+Change detected, rebuilding site (#256).
+2026-04-22 23:05:14.519 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#257).
+2026-04-22 23:05:45.021 +0200
+Source changed /plan-eintraege/pe-0017.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#258).
+2026-04-22 23:05:47.520 +0200
+Source changed /plan-eintraege/pe-0017.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#259).
+2026-04-22 23:05:51.519 +0200
+Source changed /plan-eintraege/pe-0018.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#260).
+2026-04-22 23:07:42.021 +0200
+Template changed /_default/baseof.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#261).
+2026-04-22 23:08:45.026 +0200
+Source changed /plan-eintraege/pe-0019.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#262).
+2026-04-22 23:08:52.030 +0200
+Source changed /plan-eintraege/pe-0020.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#263).
+2026-04-22 23:08:57.519 +0200
+Source changed /plan-eintraege/pe-0021.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#264).
+2026-04-22 23:11:05.019 +0200
+Template changed /partials/jahresplan-cell.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#265).
+2026-04-22 23:11:12.018 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#266).
+2026-04-22 23:11:22.519 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#267).
+2026-04-22 23:12:37.028 +0200
+Source changed /plan-eintraege/pe-0022.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#268).
+2026-04-22 23:12:43.520 +0200
+Source changed /plan-eintraege/pe-0021.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#269).
+2026-04-22 23:12:48.520 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#270).
+2026-04-22 23:12:54.018 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#271).
+2026-04-22 23:13:07.019 +0200
+Source changed /plan-eintraege/pe-0013.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#272).
+2026-04-22 23:13:14.021 +0200
+Source changed /plan-eintraege/pe-0021.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#273).
+2026-04-22 23:13:26.020 +0200
+Source changed /plan-eintraege/pe-0020.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#274).
+2026-04-22 23:13:29.023 +0200
+Source changed /plan-eintraege/pe-0022.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#275).
+2026-04-22 23:13:37.519 +0200
+Source changed /plan-eintraege/pe-0016.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#276).
+2026-04-22 23:13:40.019 +0200
+Source changed /plan-eintraege/pe-0019.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#277).
+2026-04-22 23:16:11.523 +0200
+Source changed /plan-eintraege/pe-0023.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#278).
+2026-04-22 23:16:17.021 +0200
+Source changed /plan-eintraege/pe-0024.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#279).
+2026-04-22 23:16:22.020 +0200
+Source changed /plan-eintraege/pe-0025.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#280).
+2026-04-22 23:16:30.032 +0200
+Source changed /plan-eintraege/pe-0026.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#281).
+2026-04-22 23:16:38.520 +0200
+Source changed /plan-eintraege/pe-0026.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 45 ms
+
+Change detected, rebuilding site (#282).
+2026-04-22 23:16:44.519 +0200
+Source changed /plan-eintraege/pe-0023.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#283).
+2026-04-22 23:16:54.520 +0200
+Source changed /plan-eintraege/pe-0024.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#284).
+2026-04-22 23:17:00.020 +0200
+Source changed /plan-eintraege/pe-0025.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#285).
+2026-04-22 23:19:24.518 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 11 ms
+
+Change detected, rebuilding site (#286).
+2026-04-22 23:19:34.018 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 14 ms
+
+Change detected, rebuilding site (#287).
+2026-04-22 23:20:10.519 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#288).
+2026-04-22 23:20:32.518 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#289).
+2026-04-22 23:21:03.518 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#290).
+2026-04-22 23:22:47.521 +0200
+Source changed /plan-eintraege/pe-0027.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#291).
+2026-04-22 23:23:04.019 +0200
+Source changed /plan-eintraege/pe-0028.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#292).
+2026-04-22 23:23:12.018 +0200
+Source changed /plan-eintraege/pe-0029.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#293).
+2026-04-22 23:25:17.002 +0200
+Source changed /plan-eintraege/pe-0028.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#294).
+2026-04-22 23:25:39.497 +0200
+Source changed /plan-eintraege/pe-0030.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#295).
+2026-04-22 23:26:25.496 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#296).
+2026-04-22 23:26:36.995 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 22 ms
+
+Change detected, rebuilding site (#297).
+2026-04-22 23:27:25.997 +0200
+Source changed /plan-eintraege/pe-0031.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#298).
+2026-04-22 23:27:36.496 +0200
+Source changed /plan-eintraege/pe-0028.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#299).
+2026-04-22 23:27:45.495 +0200
+Source changed /plan-eintraege/pe-0027.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#300).
+2026-04-22 23:27:48.495 +0200
+Source changed /plan-eintraege/pe-0031.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#301).
+2026-04-22 23:30:12.993 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#302).
+2026-04-22 23:31:27.004 +0200
+Source changed /plan-eintraege/pe-0032.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#303).
+2026-04-22 23:31:29.997 +0200
+Source changed /plan-eintraege/pe-0033.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 33 ms
+
+Change detected, rebuilding site (#304).
+2026-04-22 23:31:35.995 +0200
+Source changed /plan-eintraege/pe-0034.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#305).
+2026-04-22 23:31:39.994 +0200
+Source changed /plan-eintraege/pe-0035.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 39 ms
+
+Change detected, rebuilding site (#306).
+2026-04-22 23:31:57.494 +0200
+Source changed /plan-eintraege/pe-0035.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#307).
+2026-04-22 23:32:06.994 +0200
+Source changed /plan-eintraege/pe-0036.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#308).
+2026-04-22 23:32:15.492 +0200
+Source changed /plan-eintraege/pe-0037.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#309).
+2026-04-22 23:33:45.992 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#310).
+2026-04-22 23:33:53.492 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 16 ms
+
+Change detected, rebuilding site (#311).
+2026-04-22 23:36:00.495 +0200
+Source changed /plan-eintraege/pe-0032.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 51 ms
+
+Change detected, rebuilding site (#312).
+2026-04-22 23:36:02.509 +0200
+Source changed /plan-eintraege/pe-0033.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#313).
+2026-04-22 23:36:04.010 +0200
+Source changed /plan-eintraege/pe-0037.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#314).
+2026-04-22 23:36:10.991 +0200
+Source changed /plan-eintraege/pe-0034.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#315).
+2026-04-22 23:36:12.492 +0200
+Source changed /plan-eintraege/pe-0035.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 32 ms
+
+Change detected, rebuilding site (#316).
+2026-04-22 23:36:13.992 +0200
+Source changed /plan-eintraege/pe-0036.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#317).
+2026-04-22 23:36:22.494 +0200
+Source changed /plan-eintraege/pe-0029.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#318).
+2026-04-22 23:36:24.493 +0200
+Source changed /plan-eintraege/pe-0030.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 46 ms
+
+Change detected, rebuilding site (#319).
+2026-04-22 23:36:29.993 +0200
+Source changed /plan-eintraege/pe-0038.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 46 ms
+
+Change detected, rebuilding site (#320).
+2026-04-22 23:36:32.992 +0200
+Source changed /plan-eintraege/pe-0039.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#321).
+2026-04-22 23:36:40.492 +0200
+Source changed /plan-eintraege/pe-0040.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#322).
+2026-04-22 23:36:45.492 +0200
+Source changed /plan-eintraege/pe-0041.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#323).
+2026-04-22 23:40:16.490 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#324).
+2026-04-22 23:40:33.988 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#325).
+2026-04-22 23:43:02.488 +0200
+Source changed /lernsituationen/ls-007.md
+Source changed /lernsituationen/ls-008.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#326).
+2026-04-22 23:43:41.988 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 15 ms
+
+Change detected, rebuilding site (#327).
+2026-04-22 23:45:45.991 +0200
+Source changed /plan-eintraege/pe-0038.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 51 ms
+
+Change detected, rebuilding site (#328).
+2026-04-22 23:45:47.990 +0200
+Source changed /plan-eintraege/pe-0039.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#329).
+2026-04-22 23:45:49.487 +0200
+Source changed /plan-eintraege/pe-0040.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#330).
+2026-04-22 23:45:50.990 +0200
+Source changed /plan-eintraege/pe-0041.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#331).
+2026-04-22 23:46:04.993 +0200
+Source changed /plan-eintraege/pe-0042.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#332).
+2026-04-22 23:46:07.488 +0200
+Source changed /plan-eintraege/pe-0043.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#333).
+2026-04-22 23:46:13.488 +0200
+Source changed /plan-eintraege/pe-0043.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#334).
+2026-04-22 23:46:16.488 +0200
+Source changed /plan-eintraege/pe-0043.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#335).
+2026-04-22 23:46:20.988 +0200
+Source changed /plan-eintraege/pe-0044.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 39 ms
+
+Change detected, rebuilding site (#336).
+2026-04-22 23:46:23.490 +0200
+Source changed /plan-eintraege/pe-0045.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 39 ms
+
+Change detected, rebuilding site (#337).
+2026-04-22 23:46:27.988 +0200
+Source changed /plan-eintraege/pe-0046.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#338).
+2026-04-22 23:46:31.989 +0200
+Source changed /plan-eintraege/pe-0042.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 50 ms
+
+Change detected, rebuilding site (#339).
+2026-04-22 23:46:34.986 +0200
+Source changed /plan-eintraege/pe-0043.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#340).
+2026-04-22 23:46:39.487 +0200
+Source changed /plan-eintraege/pe-0047.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#341).
+2026-04-22 23:46:42.988 +0200
+Source changed /plan-eintraege/pe-0048.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#342).
+2026-04-22 23:46:52.990 +0200
+Source changed /plan-eintraege/pe-0048.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#343).
+2026-04-22 23:46:55.989 +0200
+Source changed /plan-eintraege/pe-0048.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#344).
+2026-04-22 23:46:58.488 +0200
+Source changed /plan-eintraege/pe-0048.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 50 ms
+
+Change detected, rebuilding site (#345).
+2026-04-22 23:47:06.987 +0200
+Source changed /plan-eintraege/pe-0049.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#346).
+2026-04-22 23:47:13.488 +0200
+Source changed /plan-eintraege/pe-0046.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#347).
+2026-04-22 23:50:01.000 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#348).
+2026-04-22 23:50:14.502 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 21 ms
+
+Change detected, rebuilding site (#349).
+2026-04-22 23:58:18.004 +0200
+Source changed /plan-eintraege/pe-0050.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 42 ms
+
+Change detected, rebuilding site (#350).
+2026-04-22 23:58:25.011 +0200
+Source changed /plan-eintraege/pe-0047.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 48 ms
+
+Change detected, rebuilding site (#351).
+2026-04-22 23:58:28.502 +0200
+Source changed /plan-eintraege/pe-0049.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#352).
+2026-04-22 23:58:34.503 +0200
+Source changed /plan-eintraege/pe-0050.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 44 ms
+
+Change detected, rebuilding site (#353).
+2026-04-22 23:58:41.499 +0200
+Source changed /plan-eintraege/pe-0044.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 45 ms
+
+Change detected, rebuilding site (#354).
+2026-04-22 23:58:44.000 +0200
+Source changed /plan-eintraege/pe-0045.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#355).
+2026-04-23 07:11:28.972 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#356).
+2026-04-23 07:12:42.475 +0200
+Source changed /plan-eintraege/pe-0051.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#357).
+2026-04-23 07:12:49.471 +0200
+Source changed /plan-eintraege/pe-0052.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#358).
+2026-04-23 07:12:55.472 +0200
+Source changed /plan-eintraege/pe-0053.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#359).
+2026-04-23 07:12:59.972 +0200
+Source changed /plan-eintraege/pe-0053.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 41 ms
+
+Change detected, rebuilding site (#360).
+2026-04-23 07:13:04.472 +0200
+Source changed /plan-eintraege/pe-0052.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#361).
+2026-04-23 07:13:09.473 +0200
+Source changed /plan-eintraege/pe-0051.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 51 ms
+
+Change detected, rebuilding site (#362).
+2026-04-23 07:15:22.475 +0200
+Source changed /plan-eintraege/pe-0054.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 45 ms
+
+Change detected, rebuilding site (#363).
+2026-04-23 07:15:24.973 +0200
+Source changed /plan-eintraege/pe-0054.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 50 ms
+
+Change detected, rebuilding site (#364).
+2026-04-23 07:17:29.971 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 17 ms
+
+Change detected, rebuilding site (#365).
+2026-04-23 07:18:34.472 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#366).
+2026-04-23 07:23:43.970 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 18 ms
+
+Change detected, rebuilding site (#367).
+2026-04-23 07:27:08.971 +0200
+Source changed /plan-eintraege/pe-0055.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#368).
+2026-04-23 07:27:46.970 +0200
+Template changed /jahresplan/single.html
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#369).
+2026-04-23 07:27:58.471 +0200
+Source changed /plan-eintraege/pe-0055.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 24 ms
+
+Change detected, rebuilding site (#370).
+2026-04-23 07:32:07.447 +0200
+Source changed /plan-eintraege/pe-0056.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#371).
+2026-04-23 07:32:19.449 +0200
+Source changed /plan-eintraege/pe-0057.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#372).
+2026-04-23 07:32:24.948 +0200
+Source changed /plan-eintraege/pe-0058.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 30 ms
+
+Change detected, rebuilding site (#373).
+2026-04-23 07:32:32.450 +0200
+Source changed /plan-eintraege/pe-0059.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#374).
+2026-04-23 07:32:36.446 +0200
+Source changed /plan-eintraege/pe-0060.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change detected, rebuilding site (#375).
+2026-04-23 07:32:48.448 +0200
+Source changed /plan-eintraege/pe-0060.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 53 ms
+
+Change detected, rebuilding site (#376).
+2026-04-23 07:32:52.952 +0200
+Source changed /plan-eintraege/pe-0061.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 40 ms
+
+Change detected, rebuilding site (#377).
+2026-04-23 07:32:57.447 +0200
+Source changed /plan-eintraege/pe-0062.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#378).
+2026-04-23 07:33:01.447 +0200
+Source changed /plan-eintraege/pe-0063.md
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 27 ms

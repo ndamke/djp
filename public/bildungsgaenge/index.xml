@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bildungsgaenge on Didaktischer Wizard</title>
+    <link>http://localhost:1313/bildungsgaenge/</link>
+    <description>Recent content in Bildungsgaenge on Didaktischer Wizard</description>
+    <generator>Hugo</generator>
+    <language>de-de</language>
+    <atom:link href="http://localhost:1313/bildungsgaenge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Informationstechnische Assistenz</title>
+      <link>http://localhost:1313/bildungsgaenge/bg-it/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bildungsgaenge/bg-it/</guid>
+      <description>&lt;p&gt;Beispiel-Bildungsgang fuer den ersten Hugo-Prototyp.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
